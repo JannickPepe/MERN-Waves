@@ -5,6 +5,9 @@
 import React from 'react';
 import FaqsContainer from '../components/FaqsContainer';
 import { NewHero } from '../components/NewHero';
+import CardCarousel from '../components/CardSlider';
+import { SwapLogos } from '../components/SwapLogos';
+import { DisappearingFeatures } from '../components/DisappearingFeatures';
 
 const Landing = () => {
 
@@ -15,15 +18,12 @@ const Landing = () => {
       {/*
       {user && <Navigate to='/' />}
       */}
-
       {/*
       <nav>
         <Logo />
       </nav>
       */}
-
       <NewHero />
-      
       {/*
       <div className='flex justify-center'>
         <Link to='/register' className='btn btn-hero'>
@@ -31,6 +31,12 @@ const Landing = () => {
         </Link>
       </div>
       */}
+
+      <SwapLogos />
+
+      <DisappearingFeatures />
+
+      <CardCarousel />
         
       {/* FAQ SECTION STARTS */}
       <div className='text-dark py-10'>

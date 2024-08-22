@@ -96,7 +96,7 @@ export const NewHero = () => {
           <img
             src={WavesImg}
             alt="Placeholder image"
-            className="mr-2 h-full w-40 bg-neutral-200 object-cover"
+            className="mr-2 h-full w-40 bg-neutral-200 object-cover rounded-md"
           />
           <h1 className="text-3xl font-bold text-neutral-400 sm:text-5xl md:text-7xl">
             Life is short. <br />
