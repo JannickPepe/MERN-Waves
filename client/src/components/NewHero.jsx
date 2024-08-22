@@ -4,7 +4,7 @@ import React, { useRef } from "react";
 import { FiArrowDown } from "react-icons/fi";
 import WavesImg from '../assets/images/waves.jpeg';
 // import HeroPing from "./PingIcon";
-import MagnetButtonExample from "./NewHeroButton";
+import Example from "./HeroButton";
 
 export const NewHero = () => {
 
@@ -101,7 +101,7 @@ export const NewHero = () => {
             </span>
           </h1>
         </div>
-        <MagnetButtonExample />
+        <Example />
       </>
     );
   };

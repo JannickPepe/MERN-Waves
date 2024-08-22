@@ -11,7 +11,7 @@ const auth = async (req, res, next) => {
 
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET);
-    const testUser = payload.userId === '63628d5d178e918562ef9ce8';
+    const testUser = payload.userId === '66c79bcc764c4a9b837986c0';
     req.user = { userId: payload.userId, testUser };
     next();
     
