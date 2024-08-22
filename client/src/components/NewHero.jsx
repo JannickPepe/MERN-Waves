@@ -3,7 +3,8 @@ import { motion, useScroll, useVelocity, useTransform, useSpring,} from "framer-
 import React, { useRef } from "react";
 import { FiArrowDown } from "react-icons/fi";
 import WavesImg from '../assets/images/waves.jpeg';
-import Example from "./HeroButton";
+// import HeroPing from "./PingIcon";
+import MagnetButtonExample from "./NewHeroButton";
 
 export const NewHero = () => {
 
@@ -49,32 +50,25 @@ export const NewHero = () => {
           40° 42' 46" N, 74° 0' 21" W
           <br />
         </p>
+        {/*
         <Logo />
+        */}
+      
         <Links />
       </div>
     );
   };
   
+  // eslint-disable-next-line no-unused-vars
   const Logo = () => {
     // Temp logo from https://logoipsum.com/
     return (
-      <svg
-        width="36"
-        height="auto"
-        viewBox="0 0 50 39"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="absolute right-4 top-1/2 h-fit -translate-y-1/2 translate-x-0 fill-neutral-950 md:right-1/2 md:translate-x-1/2"
-      >
-        <path
-          d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z"
-          stopColor="#000000"
-        ></path>
-        <path
-          d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
-          stopColor="#000000"
-        ></path>
-      </svg>
+      {/*
+      <div className="hidden md:block">
+        <HeroPing />
+      </div>
+      */}
+      
     );
   };
   
@@ -84,7 +78,7 @@ export const NewHero = () => {
         <a href="/" className="hover:text-sky-600 hover:scale-110 transition">Supply</a>
         <a href="/" className="hover:text-sky-600 hover:scale-110 transition">Merch</a>
         <a href="/" className="hover:text-sky-600 hover:scale-110 transition">Locations</a>
-        <a href="/register" className="hover:text-sky-600 hover:scale-110 transition">Register / Login</a>
+        <a href="/register" className="hover:text-sky-600 hover:scale-110 transition">Register</a>
       </nav>
     );
   };
@@ -107,7 +101,7 @@ export const NewHero = () => {
             </span>
           </h1>
         </div>
-        <Example />
+        <MagnetButtonExample />
       </>
     );
   };
