@@ -18,24 +18,10 @@ const Landing = () => {
       {/*
       {user && <Navigate to='/' />}
       */}
-      {/*
-      <nav>
-        <Logo />
-      </nav>
-      */}
+      
       <NewHero />
-      {/*
-      <div className='flex justify-center'>
-        <Link to='/register' className='btn btn-hero'>
-          Login/Register
-        </Link>
-      </div>
-      */}
-
       <SwapLogos />
-
       <DisappearingFeatures />
-
       <CardCarousel />
         
       {/* FAQ SECTION STARTS */}

@@ -75,10 +75,10 @@ export const NewHero = () => {
   const Links = () => {
     return (
       <nav className="flex gap-4 text-base">
-        <a href="/" className="hover:text-sky-600 hover:scale-110 transition">Supply</a>
-        <a href="/" className="hover:text-sky-600 hover:scale-110 transition">Merch</a>
-        <a href="/" className="hover:text-sky-600 hover:scale-110 transition">Locations</a>
-        <a href="/register" className="hover:text-sky-600 hover:scale-110 transition">Register</a>
+        <a href="/" className="hover:text-sky-600 hover:scale-110 transition">Quotes</a>
+        <a href="/" className="hover:text-sky-600 hover:scale-110 transition">About</a>
+        <a href="/" className="hover:text-sky-600 hover:scale-110 transition">Contact</a>
+        <a href="/register" className="hover:text-sky-600 hover:scale-110 transition">Try it</a>
       </nav>
     );
   };
@@ -97,7 +97,7 @@ export const NewHero = () => {
             Don't waste it. <br />
             It's time to{" "}
             <span className="inline-block -skew-x-[18deg] font-black text-sky-500">
-              Wave.
+              QuoteWaves.
             </span>
           </h1>
         </div>
