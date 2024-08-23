@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import '../styles/Faq.css';
+import '../../styles/Faq.css';
 // import moment from 'moment';
 import { Link } from 'react-router-dom';
-import { useAppContext } from '../context/appContext';
+import { useAppContext } from '../../context/appContext';
 import { FiChevronDown } from "react-icons/fi";
 import { motion } from "framer-motion";
 import useMeasure from "react-use-measure";

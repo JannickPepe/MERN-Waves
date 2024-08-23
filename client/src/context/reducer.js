@@ -45,7 +45,7 @@ const reducer = (state, action) => {
 if (action.type === CLEAR_TOPQUOTE_VALUES) {
   const initialState = {
       isEditing: false,
-      edittopquotesId: '',
+      editTopQuotesId: '',
       topquotestitle: '',
       topquotestext: '',
       topquotesauthor: '',
@@ -109,15 +109,14 @@ if (action.type === GET_CLIENT_TOPQUOTES_SUCCESS) {
 }
 
 if (action.type === SET_EDIT_TOPQUOTE) {
-
-  const topquotes = state.topquotess.find((topquotes) => topquotes._id === action.payload.id);
-  const { _id, topquotestitle, topquotestext, TopQuotesAuthor } = topquotes;
+  const topquotes = state.topquotes.find((topquotes) => topquotes._id === action.payload.id);
+  const { _id, topquotestitle, topquotestext, topquotesauthor } = topquotes;
   
   return {
       ...state,
       isEditing: true,
-      edittopquotesId: _id,
-      topquotestitle, topquotestext, TopQuotesAuthor,
+      editTopQuotesId: _id,
+      topquotestitle, topquotestext, topquotesauthor,
   };
 }
 
@@ -231,6 +230,7 @@ if (action.type === GET_CLIENT_FAQS_SUCCESS) {
 if (action.type === SET_EDIT_FAQ) {
   const faq = state.faqs.find((faq) => faq._id === action.payload.id);
   const { _id, faqtitle, faqtext } = faq;
+
   return {
       ...state,
       isEditing: true,

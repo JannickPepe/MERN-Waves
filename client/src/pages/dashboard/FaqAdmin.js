@@ -3,7 +3,7 @@ import React from 'react'
 import { FormRow, Alert } from '../../components'
 import { useAppContext } from '../../context/appContext'
 import Wrapper from '../../assets/wrappers/DashboardFormPage'
-import FaqsContainer from '../../components/FaqsContainer'
+import FaqsContainer from '../../components/FAQ/FaqsContainer'
 import TextAreaRow from '../../components/TextAreaRow'
 
 

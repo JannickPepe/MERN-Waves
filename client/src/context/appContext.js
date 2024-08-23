@@ -81,7 +81,7 @@ const initialState = {
   topquotestitle: '',
   topquotestext: '',
   topquotesauthor: '',
-  edittopquotesId: '',
+  editTopQuotesId: '',
 };
 
 const AppContext = React.createContext();
@@ -142,6 +142,7 @@ const AppProvider = ({ children }) => {
     }
     clearAlert();
   };
+
   const toggleSidebar = () => {
     dispatch({ type: TOGGLE_SIDEBAR });
   };
@@ -150,6 +151,7 @@ const AppProvider = ({ children }) => {
     await authFetch.get('/auth/logout');
     dispatch({ type: LOGOUT_USER });
   };
+
   const updateUser = async (currentUser) => {
     dispatch({ type: UPDATE_USER_BEGIN });
     try {
@@ -184,7 +186,7 @@ const AppProvider = ({ children }) => {
   };
 
   const clearTopQuoteValues = () => {
-    dispatch({ type: CLEAR_FAQ_VALUES });
+    dispatch({ type: CLEAR_TOPQUOTE_VALUES });
   };
 
   const createJob = async () => {
@@ -317,8 +319,8 @@ const AppProvider = ({ children }) => {
     getCurrentUser();
   }, []);
 
-  // FAQ CRUD START
 
+  // FAQ CRUD START
   const createFaq = async () => {
     dispatch({ type: CREATE_FAQ_BEGIN });
     try {
@@ -495,7 +497,7 @@ const editTopQuote = async () => {
   try {
       const { topquotestitle,  topquotestext, topquotesauthor } = state;
       console.log("i am in edit Top Quotes");
-      await authFetch.patch(`/top-quotes-admin/${state.edittopquotesId}`, {
+      await authFetch.patch(`/top-quotes-admin/${state.editTopQuotesId}`, {
         topquotestitle,  topquotestext, topquotesauthor
       });
       getTopQuotes();
@@ -511,11 +513,11 @@ const editTopQuote = async () => {
   clearAlert();
 };
 
-const deleteTopQuote = async (topquotesId) => {
+const deleteTopQuote = async (TopQuotesId) => {
   dispatch({ type: DELETE_TOPQUOTE_BEGIN });
 
   try {
-      await authFetch.delete(`/top-quotes-admin/${topquotesId}`);
+      await authFetch.delete(`/top-quotes-admin/${TopQuotesId}`);
       getTopQuotes();
       
   } catch (error) {

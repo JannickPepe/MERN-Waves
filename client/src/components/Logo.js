@@ -1,7 +1,13 @@
-import logo from '../assets/images/logo.svg'
+import LogoText from "./LogoText"
 
 const Logo = () => {
-  return <img src={logo} alt='jobify' className='logo' />
+
+  return (
+    <div>
+      <LogoText />
+    </div>
+  )
+
 }
 
 export default Logo

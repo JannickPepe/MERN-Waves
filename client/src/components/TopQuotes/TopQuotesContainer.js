@@ -86,7 +86,7 @@ const TopQuotesContainer = (props) => {
             </h5>
              */}
 
-            <div className='grid grid-cols-4 grid-rows-subgrid gap-4 bg-black py-10 px-8 mx-auto'>
+            <div className='lg:grid lg:grid-cols-4 lg:grid-rows-subgrid lg:gap-4 bg-black py-10 px-4 md:px-8 mx-auto'>
                 {topquotess.map((topquotes) => {
                     return <TopQuotes key={topquotes._id} {...topquotes} isTopQuotesPage={props.isTopQuotesPage} />;
                 })}

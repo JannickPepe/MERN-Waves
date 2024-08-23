@@ -9,7 +9,7 @@ import moment from "moment";
 
 const TopQuotes = ({ _id, topquotestitle, topquotestext, topquotesauthor, createdAt, isTopQuotesPage }) => {
 
-    const { setEditTopQuotes, deleteTopQuotes } = useAppContext()
+    const { setEditTopQuote, deleteTopQuote } = useAppContext()
 
     let date = moment(createdAt)
     date = date.format('MMM Do, YYYY');
@@ -47,19 +47,19 @@ const TopQuotes = ({ _id, topquotestitle, topquotestext, topquotesauthor, create
                 <>
                 </>
                 ) : <>
-                    <footer className="mt-2">
-                        <div className='actions'>
+                    <footer className="mt-4 mb-4 md:mb-0">
+                        <div className='flex justify-center gap-6'>
                             <Link
                                 to='/topquotesadmin'
-                                className='btn edit-btn btn-success'
-                                onClick={() => setEditTopQuotes(_id)}
+                                className='bg-emerald-500 rounded-lg py-2 px-2 text-white'
+                                onClick={() => setEditTopQuote(_id)}
                             >
                                 Edit
                             </Link>
                             <button
                                 type='button'
-                                className='btn delete-btn btn-danger mx-2'
-                                onClick={() => deleteTopQuotes(_id)}
+                                className='bg-red-500 rounded-lg py-2 px-2 text-white'
+                                onClick={() => deleteTopQuote(_id)}
                             >
                                 Delete
                             </button>

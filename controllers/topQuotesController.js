@@ -68,22 +68,22 @@ const getAllTopQuotes = async (req, res) => {
 // Update TOPQUOTES
 const updateTopQuote = async (req, res) => {
 
-    const { id: topquotesId } = req.params;
+    const { id: topQuotesId } = req.params;
     const { topquotestitle, topquotestext, topquotesauthor } = req.body;
 
     if (!topquotestitle || !topquotestext || !topquotesauthor) {
         throw new BadRequestError('Please provide all values');
     }
-    const topquotes = await TopQuotes.findOne({ _id: topquotesId });
+    const topquotes = await TopQuotes.findOne({ _id: topQuotesId });
 
     if (!topquotes) {
-        throw new NotFoundError(`No topquotes with id :${topquotesId}`);
+        throw new NotFoundError(`No topquotes with id :${topQuotesId}`);
     }
 
     // check permissions
     // checkPermissions(req.user, topquotes.createdBy);
 
-    const updatedTopQuotes = await TopQuotes.findOneAndUpdate({ _id: topquotesId }, req.body, {
+    const updatedTopQuotes = await TopQuotes.findOneAndUpdate({ _id: topQuotesId }, req.body, {
         new: true,
         runValidators: true,
     });
@@ -94,11 +94,11 @@ const updateTopQuote = async (req, res) => {
 // Delete TopQuote
 const deleteTopQuote = async (req, res) => {
 
-    const { id: topquotesId } = req.params;
-    const topquotes = await TopQuotes.findOne({ _id: topquotesId });
+    const { id: topQuotesId } = req.params;
+    const topquotes = await TopQuotes.findOne({ _id: topQuotesId });
 
     if (!topquotes) {
-        throw new NotFoundError(`No topquotes with id :${topquotesId}`);
+        throw new NotFoundError(`No topquotes with id :${topQuotesId}`);
     }
 
     // checkPermissions(req.user, faq.createdBy);

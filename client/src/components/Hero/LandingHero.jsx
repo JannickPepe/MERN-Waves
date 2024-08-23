@@ -2,20 +2,21 @@
 import { animate, useMotionTemplate, useMotionValue, motion, MotionConfig, } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 
 
 export const LandingHero = () => {
     return (
         <section className="grid grid-cols-12 border border-neutral-700 bg-neutral-900 text-neutral-50">
-                <Left />
-                <Right />
+            <Left />
+            <Right />
         </section>
     );
 };
 
 const Left = () => (
+
     <div className="col-span-12 flex flex-col justify-between border-r border-neutral-700 md:col-span-6">
         <div className="px-6 py-20 md:px-12 md:py-24">
             <h1 className="text-4xl uppercase leading-tight md:text-7xl md:leading-tight">
@@ -25,8 +26,12 @@ const Left = () => (
                 The global platform for <span className="text-emerald-300">Quotes</span> 
             </h1>
         </div>
+        <Link to={'/allquotes'}>
+            <span>All Quotes</span>
+        </Link>
         <BeamInput />
     </div>
+    
 );
 
 const BeamInput = () => {

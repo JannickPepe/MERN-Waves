@@ -5,7 +5,7 @@ import React from 'react'
 const Footer = () => {
 
     return (
-        <footer className="flex flex-col space-y-10 justify-center pt-10 mt-10 border-t border-sky-700">
+        <footer className="flex flex-col space-y-10 justify-center pt-10 border-t border-emerald-600">
 
             <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
                 <a className="hover:text-gray-900" href="/">Home</a>

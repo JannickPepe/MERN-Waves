@@ -1,10 +1,10 @@
 
 import { useEffect, useState } from 'react';
-import { useAppContext } from '../context/appContext';
-import Loading from './Loading';
-import Alert from './Alert';
-import Wrapper from '../assets/wrappers/JobsContainer';
-import PageBtnContainer from './PageBtnContainer';
+import { useAppContext } from '../../context/appContext';
+import Loading from '../Loading';
+import Alert from '../Alert';
+import Wrapper from '../../assets/wrappers/JobsContainer';
+import PageBtnContainer from '../PageBtnContainer';
 import Faq from './Faq';
 import axios from 'axios';
 

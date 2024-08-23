@@ -1,10 +1,10 @@
 
 import React from 'react'
-import { FormRow, Alert, TopQuotesContainer } from '../../components'
+import { FormRow, Alert, } from '../../components'
 import { useAppContext } from '../../context/appContext'
 import Wrapper from '../../assets/wrappers/DashboardFormPage'
-import FaqsContainer from '../../components/FaqsContainer'
 import TextAreaRow from '../../components/TextAreaRow'
+import TopQuotesContainer from '../../components/TopQuotes/TopQuotesContainer'
 
 
 
@@ -41,7 +41,7 @@ const TopQuotesAdmin = () => {
                 <div className='form-center'>
                     {/* title */}
                     <FormRow
-                        placeholder='Top Quote title'
+                        placeholder='Rank of the quote...'
                         type='text'
                         name='topquotestitle'
                         value={topquotestitle}
@@ -49,7 +49,7 @@ const TopQuotesAdmin = () => {
                     />
                     {/* subtitle */}
                     <TextAreaRow
-                        placeholder='Top Quote text'
+                        placeholder='Once upon a time...'
                         type='text'
                         name='topquotestext'
                         value={topquotestext}
@@ -57,7 +57,7 @@ const TopQuotesAdmin = () => {
                     />
                     {/* author */}
                     <FormRow
-                        placeholder='Top Quote Author'
+                        placeholder='Sun Tzu...'
                         type='text'
                         name='topquotesauthor'
                         value={topquotesauthor}
@@ -65,7 +65,7 @@ const TopQuotesAdmin = () => {
                     />
 
                     {/* btn container */}
-                    <div className='btn-container'>
+                    <div className='btn-container mb-5 md:mb-10'>
                         <button type='submit' className='btn btn-block submit-btn' onClick={handleSubmit} disabled={isLoading} >
                             submit
                         </button>

@@ -10,8 +10,9 @@ import Navbar from './Navbar'
 import SearchContainer from './SearchContainer'
 import SmallSidebar from './SmallSidebar'
 import StatsContainer from './StatsContainer'
-import FaqsContainer from './FaqsContainer'
+import FaqsContainer from './FAQ/FaqsContainer'
 import TopQuotesContainer from './TopQuotes/TopQuotesContainer'
+import LogoText from './LogoText'
 
 export {
   Logo,
@@ -28,4 +29,5 @@ export {
   Loading,
   FaqsContainer,
   TopQuotesContainer,
+  LogoText,
 }

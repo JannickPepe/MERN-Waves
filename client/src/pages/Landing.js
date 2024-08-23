@@ -3,7 +3,7 @@
 //import { Navigate } from 'react-router-dom';
 //import { useAppContext } from '../context/appContext';
 import React from 'react';
-import FaqsContainer from '../components/FaqsContainer';
+import FaqsContainer from '../components/FAQ/FaqsContainer';
 import TopQuotesContainer from '../components/TopQuotes/TopQuotesContainer';
 import CardCarousel from '../components/CardSlider';
 import { DisappearingFeatures } from '../components/DisappearingFeatures';

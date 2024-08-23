@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Register, Landing, Error, ProtectedRoute } from './pages'
+import { Register, Landing, Error, ProtectedRoute, AllQuotes } from './pages'
 import { AllJobs, Profile, SharedLayout, Stats, AddJob, FaqAdmin, TopQuotesAdmin, } from './pages/dashboard'
 import Footer from './components/Footer'
 
@@ -24,6 +24,7 @@ function App() {
         </Route>
         <Route path='/register' element={<Register />} />
         <Route path='/landing' element={<Landing />} />
+        <Route path='/allquotes' element={<AllQuotes />} />
         <Route path='*' element={<Error />} />
       </Routes>
       <Footer />

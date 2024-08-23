@@ -4,16 +4,18 @@
 const TextAreaRow = ({ type, name, value, handleChange, labelText, placeholder }) => {
 
     return (
-        <div className='text-area-row'>
+        <div className=''>
+            <label htmlFor={name} className='form-label'>
+                {labelText || name}
+            </label>
             <textarea
                 placeholder={placeholder}
                 type={type}
                 value={value}
                 name={name}
                 onChange={handleChange}
-                className='text-area-row' 
+                className='resize border border-slate-700 w-3/4 p-2' 
                 as="textarea" 
-                rows={4}
             />
         </div>
     )
