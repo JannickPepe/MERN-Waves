@@ -11,6 +11,7 @@ import SearchContainer from './SearchContainer'
 import SmallSidebar from './SmallSidebar'
 import StatsContainer from './StatsContainer'
 import FaqsContainer from './FaqsContainer'
+import TopQuotesContainer from './TopQuotes/TopQuotesContainer'
 
 export {
   Logo,
@@ -26,5 +27,5 @@ export {
   ChartsContainer,
   Loading,
   FaqsContainer,
-
+  TopQuotesContainer,
 }

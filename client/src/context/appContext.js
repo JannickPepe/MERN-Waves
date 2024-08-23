@@ -32,8 +32,12 @@ import {
   CHANGE_PAGE,
   GET_CURRENT_USER_BEGIN,
   GET_CURRENT_USER_SUCCESS,
-   // FAQ
-   CREATE_FAQ_BEGIN, CREATE_FAQ_SUCCESS, CREATE_FAQ_ERROR, GET_FAQS_BEGIN, GET_FAQS_SUCCESS, SET_EDIT_FAQ, DELETE_FAQ_BEGIN, DELETE_FAQ_ERROR, EDIT_FAQ_BEGIN, EDIT_FAQ_SUCCESS, EDIT_FAQ_ERROR, CLEAR_FAQ_VALUES,
+  // FAQ
+  CREATE_FAQ_BEGIN, CREATE_FAQ_SUCCESS, CREATE_FAQ_ERROR, GET_FAQS_BEGIN, GET_FAQS_SUCCESS, SET_EDIT_FAQ, DELETE_FAQ_BEGIN, 
+  DELETE_FAQ_ERROR, EDIT_FAQ_BEGIN, EDIT_FAQ_SUCCESS, EDIT_FAQ_ERROR, CLEAR_FAQ_VALUES,
+  // Top Quotes
+  CREATE_TOPQUOTE_BEGIN, CREATE_TOPQUOTE_SUCCESS, CREATE_TOPQUOTE_ERROR, GET_TOPQUOTES_BEGIN, GET_TOPQUOTES_SUCCESS, SET_EDIT_TOPQUOTE, DELETE_TOPQUOTE_BEGIN, 
+  DELETE_TOPQUOTE_ERROR, EDIT_TOPQUOTE_BEGIN, EDIT_TOPQUOTE_SUCCESS, EDIT_TOPQUOTE_ERROR, CLEAR_TOPQUOTE_VALUES,
 } from './actions';
 
 const initialState = {
@@ -71,6 +75,13 @@ const initialState = {
   faqtitle: '',
   faqtext: '',
   editFaqId: '',
+  // Top Quotes section
+  topquotes: [],
+  totalTopQuotes: 0,
+  topquotestitle: '',
+  topquotestext: '',
+  topquotesauthor: '',
+  edittopquotesId: '',
 };
 
 const AppContext = React.createContext();
@@ -163,12 +174,19 @@ const AppProvider = ({ children }) => {
   const handleChange = ({ name, value }) => {
     dispatch({ type: HANDLE_CHANGE, payload: { name, value } });
   };
+
   const clearValues = () => {
     dispatch({ type: CLEAR_VALUES });
   };
+
   const clearFaqValues = () => {
     dispatch({ type: CLEAR_FAQ_VALUES });
-};
+  };
+
+  const clearTopQuoteValues = () => {
+    dispatch({ type: CLEAR_FAQ_VALUES });
+  };
+
   const createJob = async () => {
     dispatch({ type: CREATE_JOB_BEGIN });
     try {
@@ -300,6 +318,7 @@ const AppProvider = ({ children }) => {
   }, []);
 
   // FAQ CRUD START
+
   const createFaq = async () => {
     dispatch({ type: CREATE_FAQ_BEGIN });
     try {
@@ -398,7 +417,117 @@ const deleteFaq = async (FaqId) => {
     }
     clearAlert();
 };
+
 // FAQ CRUD ENDS
+
+
+
+// TOP QUOTES CRUD START
+  
+const createTopQuote = async () => {
+
+  dispatch({ type: CREATE_TOPQUOTE_BEGIN });
+
+  try {
+      const { topquotestitle,  topquotestext, topquotesauthor } = state;
+      // API backend path
+      await authFetch.post('/top-quotes-admin', {
+        topquotestitle,  topquotestext, topquotesauthor
+      });
+
+      dispatch({ type: CREATE_TOPQUOTE_SUCCESS });
+      dispatch({ type: CLEAR_TOPQUOTE_VALUES });
+
+  } catch (error) {
+      if (error.response.status === 401) return;
+      dispatch({
+          type: CREATE_TOPQUOTE_ERROR,
+          payload: { msg: error.response.data.msg },
+      });
+  }
+  clearAlert();
+};
+
+const getTopQuotes = async (isTopQuotesPage) => {
+  
+  const { search } = state;
+
+  let urltopquotes = '';
+
+  if (isTopQuotesPage) {
+      urltopquotes = `/top-quotes?isLandingTopQuotes=${isTopQuotesPage}`;
+  }
+  else {
+      urltopquotes= `/top-quotes-admin?isLandingTopQuotes=${isTopQuotesPage}`;
+
+  }
+  if (search) {
+    urltopquotes = urltopquotes + `&search=${search}`;
+  }
+  dispatch({ type: GET_TOPQUOTES_BEGIN });
+  try {
+      const { data } = await authFetch.get(urltopquotes);
+      const { topquotes, totalTopQuotes, numOfPages } = data;
+      dispatch({
+          type: GET_TOPQUOTES_SUCCESS,
+          payload: {
+              topquotes,
+              totalTopQuotes,
+              numOfPages,
+          },
+      });
+  } catch (error) {
+      logoutUser();
+  }
+  // }
+
+  clearAlert();
+};
+
+
+const setEditTopQuote = (id) => {
+  dispatch({ type: SET_EDIT_TOPQUOTE, payload: { id } });
+};
+
+const editTopQuote = async () => {
+  dispatch({ type: EDIT_TOPQUOTE_BEGIN });
+
+  try {
+      const { topquotestitle,  topquotestext, topquotesauthor } = state;
+      console.log("i am in edit Top Quotes");
+      await authFetch.patch(`/top-quotes-admin/${state.edittopquotesId}`, {
+        topquotestitle,  topquotestext, topquotesauthor
+      });
+      getTopQuotes();
+      dispatch({ type: EDIT_TOPQUOTE_SUCCESS });
+      dispatch({ type: CLEAR_TOPQUOTE_VALUES });
+  } catch (error) {
+      if (error.response.status === 401) return;
+      dispatch({
+          type: EDIT_TOPQUOTE_ERROR,
+          payload: { msg: error.response.data.msg },
+      });
+  }
+  clearAlert();
+};
+
+const deleteTopQuote = async (topquotesId) => {
+  dispatch({ type: DELETE_TOPQUOTE_BEGIN });
+
+  try {
+      await authFetch.delete(`/top-quotes-admin/${topquotesId}`);
+      getTopQuotes();
+      
+  } catch (error) {
+      if (error.response.status === 401) return;
+      dispatch({
+          type: DELETE_TOPQUOTE_ERROR,
+          payload: { msg: error.response.data.msg },
+      });
+  }
+  clearAlert();
+};
+// TOP QUOTES CRUD ENDS
 
   return (
     <AppContext.Provider
@@ -425,6 +554,12 @@ const deleteFaq = async (FaqId) => {
         setEditFaq,
         deleteFaq,
         editFaq,
+        clearTopQuoteValues,
+        createTopQuote,
+        getTopQuotes,
+        setEditTopQuote,
+        deleteTopQuote,
+        editTopQuote,
       }}
     >
       {children}

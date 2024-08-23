@@ -13,7 +13,6 @@ import helmet from 'helmet';
 import xss from 'xss-clean';
 import mongoSanitize from 'express-mongo-sanitize';
 import cookieParser from 'cookie-parser';
-// hello
 // db and authenticateUser
 import connectDB from './db/connect.js';
 
@@ -21,7 +20,9 @@ import connectDB from './db/connect.js';
 import authRouter from './routes/authRoutes.js';
 import jobsRouter from './routes/jobsRoutes.js';
 import faqAdminRouter from './routes/faqAdminRouter.js'; // Admin FAQ
-import faqRouter from './routes/faqRouter.js'; // Home page FAQ
+import faqRouter from './routes/faqRouter.js'; // Client FAQ
+import topQuotesAdminRouter from './routes/topQuotesAdminRouter.js'; // Admin Top Quotes
+import topQuotesRouter from './routes/topQuotesRouter.js'; // Client Top Qoutes
 
 // middleware
 import notFoundMiddleware from './middleware/not-found.js';
@@ -46,7 +47,9 @@ app.use(cookieParser());
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/jobs', authenticateUser, jobsRouter);
 app.use('/api/v1/faq-admin', authenticateUser, faqAdminRouter); // Admin FAQ API
-app.use('/api/v1/faq', faqRouter); // Home page FAQ API
+app.use('/api/v1/faq', faqRouter); // Client FAQ API
+app.use('/api/v1/top-quotes-admin', authenticateUser, topQuotesAdminRouter); // Admin FAQ API
+app.use('/api/v1/top-quotes', topQuotesRouter); // Client FAQ API
 
 // only when ready to deploy
 app.get('*', (req, res) => {

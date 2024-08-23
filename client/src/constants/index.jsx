@@ -1,15 +1,15 @@
 // Landing Hero
 export const landing = [
     {
-        quoteone: "Qoute 1 coming soon",
+        quoteone: "Quote 1 coming soon",
     },
     {
-        quotetwo: "Qoute 2 coming soon",
+        quotetwo: "Quote 2 coming soon",
     },
     {
-        quotethree: "Qoute 3 coming soon",
+        quotethree: "Quote 3 coming soon",
     },
     {
-        quotefour: "Qoute 4 coming soon",
+        quotefour: "Quote 4 coming soon",
     }
 ];

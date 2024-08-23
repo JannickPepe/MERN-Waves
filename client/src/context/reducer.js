@@ -29,12 +29,137 @@ import {
   GET_CURRENT_USER_BEGIN,
   GET_CURRENT_USER_SUCCESS,
   // FAQ
-  CREATE_FAQ_BEGIN, CREATE_FAQ_SUCCESS, CREATE_FAQ_ERROR, GET_FAQS_BEGIN, GET_FAQS_SUCCESS, SET_EDIT_FAQ, DELETE_FAQ_BEGIN, DELETE_FAQ_ERROR, EDIT_FAQ_BEGIN, EDIT_FAQ_SUCCESS, EDIT_FAQ_ERROR, GET_CLIENT_FAQS_BEGIN, GET_CLIENT_FAQS_SUCCESS, CLEAR_FAQ_VALUES,
+  CREATE_FAQ_BEGIN, CREATE_FAQ_SUCCESS, CREATE_FAQ_ERROR, GET_FAQS_BEGIN, GET_FAQS_SUCCESS, SET_EDIT_FAQ, DELETE_FAQ_BEGIN, DELETE_FAQ_ERROR, EDIT_FAQ_BEGIN, 
+  EDIT_FAQ_SUCCESS, EDIT_FAQ_ERROR, GET_CLIENT_FAQS_BEGIN, GET_CLIENT_FAQS_SUCCESS, CLEAR_FAQ_VALUES,
+  // FAQ
+  CREATE_TOPQUOTE_BEGIN, CREATE_TOPQUOTE_SUCCESS, CREATE_TOPQUOTE_ERROR, GET_TOPQUOTES_BEGIN, GET_TOPQUOTES_SUCCESS, SET_EDIT_TOPQUOTE, DELETE_TOPQUOTE_BEGIN, 
+  DELETE_TOPQUOTE_ERROR, EDIT_TOPQUOTE_BEGIN, EDIT_TOPQUOTE_SUCCESS, EDIT_TOPQUOTE_ERROR, GET_CLIENT_TOPQUOTES_BEGIN, GET_CLIENT_TOPQUOTES_SUCCESS, CLEAR_TOPQUOTE_VALUES,
 } from './actions';
 
 import { initialState } from './appContext';
 
 const reducer = (state, action) => {
+
+// TOP QUOTES START
+
+if (action.type === CLEAR_TOPQUOTE_VALUES) {
+  const initialState = {
+      isEditing: false,
+      edittopquotesId: '',
+      topquotestitle: '',
+      topquotestext: '',
+      topquotesauthor: '',
+  };
+  return {
+      ...state,
+      ...initialState,
+  };
+}
+
+if (action.type === CREATE_TOPQUOTE_BEGIN) {
+  return { ...state, isLoading: true };
+}
+
+if (action.type === CREATE_TOPQUOTE_SUCCESS) {
+  return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'success',
+      alertText: 'New Top Quotes Created!',
+  };
+}
+
+if (action.type === CREATE_TOPQUOTE_ERROR) {
+  return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'danger',
+      alertText: action.payload.msg,
+  };
+}
+
+if (action.type === GET_TOPQUOTES_BEGIN) {
+  return { ...state, isLoading: true, showAlert: false };
+}
+
+if (action.type === GET_TOPQUOTES_SUCCESS) {
+  return {
+      ...state,
+      isLoading: false,
+      topquotes: action.payload.topquotes,
+      totalTopQuotes: action.payload.totalTopQuotes,
+      numOfPages: action.payload.numOfPages,
+  };
+}
+
+if (action.type === GET_CLIENT_TOPQUOTES_BEGIN) {
+  return { ...state, isLoading: true, showAlert: false };
+}
+
+if (action.type === GET_CLIENT_TOPQUOTES_SUCCESS) {
+  return {
+      ...state,
+      isLoading: false,
+      clientTopQuotess: action.payload.clientTopQuotes,
+      totalTopQuotes: action.payload.totalTopQuotes,
+      numOfPages: action.payload.numOfPages,
+  };
+}
+
+if (action.type === SET_EDIT_TOPQUOTE) {
+
+  const topquotes = state.topquotess.find((topquotes) => topquotes._id === action.payload.id);
+  const { _id, topquotestitle, topquotestext, TopQuotesAuthor } = topquotes;
+  
+  return {
+      ...state,
+      isEditing: true,
+      edittopquotesId: _id,
+      topquotestitle, topquotestext, TopQuotesAuthor,
+  };
+}
+
+if (action.type === DELETE_TOPQUOTE_BEGIN) {
+  return { ...state, isLoading: true };
+}
+
+if (action.type === DELETE_TOPQUOTE_ERROR) {
+  return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'danger',
+      alertText: action.payload.msg,
+  };
+}
+
+if (action.type === EDIT_TOPQUOTE_BEGIN) {
+  return { ...state, isLoading: true };
+}
+
+if (action.type === EDIT_TOPQUOTE_SUCCESS) {
+  return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'success',
+      alertText: 'TopQuotes Updated!',
+  };
+}
+
+if (action.type === EDIT_TOPQUOTE_ERROR) {
+  return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'danger',
+      alertText: action.payload.msg,
+  };
+}
+
+// TOP QUOTES ENDS
 
 // FAQ START
 if (action.type === CLEAR_FAQ_VALUES) {
