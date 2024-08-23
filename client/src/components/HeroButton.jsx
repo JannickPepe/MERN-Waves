@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 const Example = () => {
     return (
-        <section className="grid place-content-center">
-            <MarqueeButton>Take on the waves here</MarqueeButton>
+        <section className="mb-4">
+            <MarqueeButton>To do or not to do</MarqueeButton>
         </section>
     );
 };
@@ -26,7 +26,7 @@ const MarqueeButton = ({ children }) => {
             whileTap={{
                 scale: 0.95,
             }}
-            className="relative overflow-hidden rounded-full bg-indigo-200 p-4 text-xl font-black uppercase text-sky-700"
+            className="relative overflow-hidden rounded-full bg-slate-800 p-4 text-xl font-black uppercase text-emerald-400"
             onClick={coursesPage}
         >
             <motion.span

@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
+import Example from "./HeroButton";
+import { landing } from "../constants/index.jsx";
 
 
 export const DisappearingFeatures = () => {
@@ -23,11 +25,9 @@ const Features = () => {
 const Copy = () => {
     return (
         <div className="flex h-fit w-full flex-col justify-center  md:sticky md:top-0 md:h-screen">
-            <span className="w-fit rounded-full bg-indigo-500 px-4 py-2 text-sm uppercase text-indigo-100">
-                Waves Energy
-            </span>
+            <Example />
             <h2 className="mb-4 mt-2 text-5xl font-medium leading-tight">
-                Learn and grow by finding yourself today
+                QuoteWaves offers a lot of different humor
             </h2>
             <p className="text-lg text-indigo-950">
                 Lorem ipsum dolor sit amet consectetur. Dolor quis a leo lobortis orci
@@ -40,7 +40,9 @@ const Copy = () => {
 };
 
 const Carousel = () => {
+
   const ref = useRef(null);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -56,17 +58,17 @@ const Carousel = () => {
           position={1}
           numItems={4}
         />
-        <CarouselItem
+        <CarouselItemTwo
           scrollYProgress={scrollYProgress}
           position={2}
           numItems={4}
         />
-        <CarouselItem
+        <CarouselItemThree
           scrollYProgress={scrollYProgress}
           position={3}
           numItems={4}
         />
-        <CarouselItem
+        <CarouselItemFour
           scrollYProgress={scrollYProgress}
           position={4}
           numItems={4}
@@ -78,7 +80,9 @@ const Carousel = () => {
   );
 };
 
-const CarouselItem = ({ scrollYProgress, position, numItems }) => {
+
+const CarouselItem = ({ scrollYProgress, position, numItems}) => {
+
   const stepSize = 1 / numItems;
   const end = stepSize * position;
   const start = end - stepSize;
@@ -94,13 +98,105 @@ const CarouselItem = ({ scrollYProgress, position, numItems }) => {
       }}
       className="grid aspect-video w-full shrink-0 place-content-center rounded-2xl bg-neutral-900"
     >
-      <span className="text-lg text-neutral-600">Feature demo here</span>
+      {landing.map((index) => (
+          <React.Fragment key={index}>
+            <span className="text-lg text-neutral-600">
+              {index.quoteone}
+            </span>
+          </React.Fragment> 
+        ))}
     </motion.div>
   );
 };
+
+const CarouselItemTwo = ({ scrollYProgress, position, numItems}) => {
+
+  const stepSize = 1 / numItems;
+  const end = stepSize * position;
+  const start = end - stepSize;
+
+  const opacity = useTransform(scrollYProgress, [start, end], [1, 0]);
+  const scale = useTransform(scrollYProgress, [start, end], [1, 0.75]);
+
+  return (
+    <motion.div
+      style={{
+        opacity,
+        scale,
+      }}
+      className="grid aspect-video w-full shrink-0 place-content-center rounded-2xl bg-neutral-900"
+    >
+      {landing.map((index) => (
+          <React.Fragment key={index}>
+            <span className="text-lg text-neutral-600">
+              {index.quotetwo}
+            </span>
+          </React.Fragment> 
+        ))}
+    </motion.div>
+  );
+};
+
+const CarouselItemThree = ({ scrollYProgress, position, numItems}) => {
+
+  const stepSize = 1 / numItems;
+  const end = stepSize * position;
+  const start = end - stepSize;
+
+  const opacity = useTransform(scrollYProgress, [start, end], [1, 0]);
+  const scale = useTransform(scrollYProgress, [start, end], [1, 0.75]);
+
+  return (
+    <motion.div
+      style={{
+        opacity,
+        scale,
+      }}
+      className="grid aspect-video w-full shrink-0 place-content-center rounded-2xl bg-neutral-900"
+    >
+      {landing.map((index) => (
+          <React.Fragment key={index}>
+            <span className="text-lg text-neutral-600">
+              {index.quotethree}
+            </span>
+          </React.Fragment>
+        ))}
+    </motion.div>
+  );
+};
+
+const CarouselItemFour = ({ scrollYProgress, position, numItems}) => {
+
+  const stepSize = 1 / numItems;
+  const end = stepSize * position;
+  const start = end - stepSize;
+
+  const opacity = useTransform(scrollYProgress, [start, end], [1, 0]);
+  const scale = useTransform(scrollYProgress, [start, end], [1, 0.75]);
+
+  return (
+    <motion.div
+      style={{
+        opacity,
+        scale,
+      }}
+      className="grid aspect-video w-full shrink-0 place-content-center rounded-2xl bg-neutral-900"
+    >
+      {landing.map((index) => (
+          <React.Fragment key={index}>
+            <span className="text-lg text-neutral-600">
+              {index.quotefour}
+            </span>
+          </React.Fragment>
+        ))}
+    </motion.div>
+  );
+};
+
 
 const Gradient = () => (
   <div className="sticky top-0 z-10 hidden h-24 w-full bg-gradient-to-b from-indigo-50 to-indigo-50/0 md:block" />
 );
 
 const Buffer = () => <div className="h-24 w-full md:h-48" />;
+

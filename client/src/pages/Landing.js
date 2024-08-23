@@ -4,10 +4,9 @@
 //import { useAppContext } from '../context/appContext';
 import React from 'react';
 import FaqsContainer from '../components/FaqsContainer';
-import { NewHero } from '../components/NewHero';
 import CardCarousel from '../components/CardSlider';
-import { SwapLogos } from '../components/SwapLogos';
 import { DisappearingFeatures } from '../components/DisappearingFeatures';
+import { LandingHero } from '../components/Hero/LandingHero';
 
 const Landing = () => {
 
@@ -18,14 +17,18 @@ const Landing = () => {
       {/*
       {user && <Navigate to='/' />}
       */}
-      
-      <NewHero />
-      <SwapLogos />
-      <DisappearingFeatures />
-      <CardCarousel />
-        
+      <section>
+        <LandingHero />
+      </section>
+      <section className='pt-10'>
+        <DisappearingFeatures />
+      </section>
+      <section>
+        <CardCarousel />
+      </section>
+    
       {/* FAQ SECTION STARTS */}
-      <div className='text-dark py-10'>
+      <section className='text-dark py-10'>
         <div className='FAQ-komponent'>
           <div className='faq'>
             <React.Fragment>
@@ -38,7 +41,7 @@ const Landing = () => {
             </React.Fragment>
           </div>
         </div>
-      </div>
+      </section>
       {/* FAQ SECTION ENDS */}
     
     </React.Fragment>
