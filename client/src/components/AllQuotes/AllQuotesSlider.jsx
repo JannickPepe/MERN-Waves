@@ -45,11 +45,11 @@ const TestimonialList = ({ list, reverse = false, duration = 50 }) => {
                         key={t.id}
                         className="shrink-0 w-[500px] grid grid-cols-[7rem,_1fr] rounded-lg overflow-hidden relative"
                     >
-                        <img src={t.img} className="w-full h-44 object-cover" alt="quotes slider img" />
+                        <div className="w-full h-44 object-cover" />
                         <div className="bg-slate-900 text-slate-50 p-4">
-                            <span className="block font-semibold text-lg mb-1">{t.name}</span>
-                            <span className="block mb-3 text-sm font-medium">{t.title}</span>
-                            <span className="block text-sm text-slate-300">{t.info}</span>
+                            <span className="block font-semibold text-lg mb-1 text-emerald-400">{t.name}</span>
+                            <span className="block text-base text-slate-300">{t.info}</span>
+                            <span className="block text-sm font-light text-slate-500 mt-2">{t.date}</span>
                         </div>
                         <span className="text-7xl absolute top-2 right-2 text-slate-700">
                         "
@@ -66,133 +66,115 @@ const testimonials = {
     top: [
         {
         id: 1,
-        img: "https://images.unsplash.com/photo-1627161683077-e34782c24d81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=703&q=80",
         name: "Jen S.",
-        title: "Founder of XYZ",
         info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa nostrum labore dolor facilis, nesciunt facere mollitia nam aspernatur esse corporis!",
+        date: "24/08/2024",
         },
         {
         id: 2,
-        img: "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80",
         name: "Paul A,",
-        title: "Founder of XYZ",
         info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa nostrum labore dolor facilis.",
+        date: "24/08/2024",
         },
         {
         id: 3,
-        img: "https://plus.unsplash.com/premium_photo-1670588776139-da93b47afc6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
         name: "Cindy J.",
-        title: "Founder of XYZ",
         info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa nostrum labore dolor facilis, nesciunt facere mollitia nam.",
+        date: "24/08/2024",
         },
         {
         id: 4,
-        img: "https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80",
         name: "Danica W.",
-        title: "Founder of XYZ",
         info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa nostrum labore dolor.",
+        date: "24/08/2024",
         },
         {
         id: 5,
-        img: "https://images.unsplash.com/photo-1629425733761-caae3b5f2e50?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
         name: "Peter H.",
-        title: "Founder of XYZ",
         info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa nostrum labore.",
+        date: "24/08/2024",
         },
         {
         id: 6,
-        img: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
         name: "Lanny B.",
-        title: "Founder of XYZ",
         info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa nostrum labore dolor facilis, nesciunt facere mollitia nam aspernatur esse!",
+        date: "24/08/2024",
         },
     ],
     middle: [
         {
         id: 1,
-        img: "https://images.unsplash.com/photo-1573497161161-c3e73707e25c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
         name: "Alex F.",
-        title: "Founder of XYZ",
         info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa nostrum labore dolor facilis, nesciunt facere mollitia nam.",
+        date: "24/08/2024",
         },
         {
         id: 2,
-        img: "https://images.unsplash.com/photo-1580518324671-c2f0833a3af3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
         name: "Claude O.",
-        title: "Founder of XYZ",
         info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa nostrum labore dolor facilis, nesciunt.",
+        date: "24/08/2024",
         },
         {
         id: 3,
-        img: "https://images.unsplash.com/photo-1603871165848-0aa92c869fa1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
         name: "Max Q.",
-        title: "Founder of XYZ",
         info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa nostrum labore dolor facilis.",
+        date: "24/08/2024",
         },
         {
         id: 4,
-        img: "https://images.unsplash.com/photo-1562788869-4ed32648eb72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80",
         name: "Jeff R.",
-        title: "Founder of XYZ",
         info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa nostrum labore dolor facilis, nesciunt facere mollitia nam aspernatur esse corporis!",
+        date: "24/08/2024",
         },
         {
         id: 5,
-        img: "https://images.unsplash.com/photo-1625504615927-c14f4f309b63?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80",
         name: "Kevin K.",
-        title: "Founder of XYZ",
         info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit!",
+        date: "24/08/2024",
         },
         {
         id: 6,
-        img: "https://images.unsplash.com/photo-1589729132389-8f0e0b55b91e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
         name: "Andrea B.",
-        title: "Founder of XYZ",
         info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa nostrum labore dolor facilis, nesciunt facere!",
+        date: "24/08/2024",
         },
     ],
     bottom: [
         {
         id: 1,
-        img: "https://images.unsplash.com/photo-1558222218-b7b54eede3f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
         name: "Danny G.",
-        title: "Founder of XYZ",
         info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa nostrum labore dolor facilis, nesciunt facere mollitia nam aspernatur!",
+        date: "24/08/2024",
         },
         {
         id: 2,
-        img: "https://images.unsplash.com/photo-1620932934088-fbdb2920e484?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80",
         name: "Ian D.",
-        title: "Founder of XYZ",
         info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa nostrum labore dolor facilis, nesciunt facere.",
+        date: "24/08/2024",
         },
         {
         id: 3,
-        img: "https://images.unsplash.com/photo-1514222709107-a180c68d72b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=898&q=80",
         name: "Ben S.",
-        title: "Founder of XYZ",
         info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+        date: "24/08/2024",
         },
         {
         id: 4,
-        img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
         name: "Matthew I.",
-        title: "Founder of XYZ",
         info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa nostrum labore dolor facilis, nesciunt facere mollitia nam aspernatur esse corporis!",
+        date: "24/08/2024",
         },
         {
             id: 5,
-            img: "https://images.unsplash.com/photo-1597346908500-28cda8acfe4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
             name: "Garrett P.",
-            title: "Founder of XYZ",
             info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa nostrum labore dolor facilis, nesciunt facere mollitia.",
+            date: "24/08/2024",
         },
         {
             id: 6,
-            img: "https://images.unsplash.com/photo-1642790595397-7047dc98fa72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80",
             name: "Xavier C.",
-            title: "Founder of XYZ",
             info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa nostrum labore dolor facilis, nesciunt facere mollitia nam aspernatur.",
+            date: "24/08/2024",
         },
     ],
 };

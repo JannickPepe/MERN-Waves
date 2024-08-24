@@ -53,7 +53,7 @@ const CardCarousel = () => {
                 {/* CARDS */}
                 <div className="mx-auto max-w-7xl">
                 <p className="mb-4 text-2xl font-semibold">
-                    Have the best:<span className="text-slate-500"> Energy today</span>
+                    QuoteWaves different<span className="text-emerald-500"> categories</span>
                 </p>
                 <motion.div
                     animate={{
@@ -110,7 +110,7 @@ const Card = ({ url, category, title, description }) => {
         }}
         >
             <div className="absolute inset-0 z-20 rounded-2xl bg-gradient-to-b from-black/90 via-black/60 to-black/0 p-6 text-white transition-[backdrop-filter] hover:backdrop-blur-sm">
-                <span className="text-xs font-semibold uppercase text-violet-300">
+                <span className="text-xs font-semibold uppercase text-emerald-300">
                     {category}
                 </span>
                 <p className="my-2 text-3xl font-bold">
@@ -131,56 +131,56 @@ const items = [
         id: 1,
         url: relaxSix,
         category: "Fantasy",
-        title: "Just feels right",
+        title: "Fantasy and imagination",
         description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
+        "We live in a fantasy world, a world of illusion. The great task in life is to find reality.",
     },
     {
         id: 2,
         url: relaxOne,
         category: "Melody",
-        title: "Type in style",
+        title: "Melody and frequencies",
         description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
+        "Every soul is a melody which needs renewing.",
     },
     {
         id: 3,
         url: relaxTwo,
         category: "Away",
-        title: "Looks like a win",
+        title: "Away in the clouds",
         description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
+        "Truth is like the sun. You can shut it out for a time, but it ain't goin' away.",
     },
     {
         id: 4,
         url: relaxThree,
         category: "Mystic",
-        title: "Back feels great",
+        title: "Mystic and the unknown",
         description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
+        "The whole world, as we experience it visually, comes to us through the mystic realm of color.",
     },
     {
         id: 5,
         url: relaxFour,
         category: "Lights",
-        title: "It's lit",
+        title: "Light and Hope",
         description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
+        "Walking with a friend in the dark is better than walking alone in the light.",
     },
     {
         id: 6,
         url: relaxFive,
         category: "Renew",
-        title: "Stand up straight",
+        title: "Fresh and energized",
         description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
+        "I think the cost of energy will come down when we make this transition to renewable energy.",
     },
     {
         id: 7,
         url: waves,
         category: "Sounds",
-        title: "Sounds good",
+        title: "Vibrations and waves",
         description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
+        "The sound of water is worth more than all the poets' words.",
     },
 ];

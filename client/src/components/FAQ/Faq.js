@@ -77,7 +77,7 @@ const Question = ({ title, children, defaultOpen = false }) => {
                         color: "rgba(3, 6, 23, 1)",
                     },
                     }}
-                    className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-left text-lg font-medium"
+                    className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-left text-lg font-medium"
                 >
                     {title}
                 </motion.span>
@@ -85,7 +85,7 @@ const Question = ({ title, children, defaultOpen = false }) => {
                     variants={{
                     open: {
                         rotate: "180deg",
-                        color: "rgb(124 58 237)",
+                        color: "#6ee7b7"
                     },
                     closed: {
                         rotate: "0deg",

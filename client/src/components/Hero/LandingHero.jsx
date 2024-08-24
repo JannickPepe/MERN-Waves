@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
+import { GrBlockQuote } from "react-icons/gr";
 
 
 export const LandingHero = () => {
@@ -25,10 +26,12 @@ const Left = () => (
                 </span>
                 The global platform for <span className="text-emerald-300">Quotes</span> 
             </h1>
+            <div className="flex justify-start">
+                <Link to={'/allquotes'} className="py-2 px-6 rounded-lg text-slate-200 border border-emerald-400  hover:text-emerald-300 hover:border-none hover:scale-110 hover:transition-all">
+                    <span className="flex text-base font-medium gap-2">See All Quotes <GrBlockQuote size={20}/></span>
+                </Link>
+            </div>
         </div>
-        <Link to={'/allquotes'}>
-            <span>All Quotes</span>
-        </Link>
         <BeamInput />
     </div>
     
@@ -115,7 +118,7 @@ const Right = () => {
                     );
                 })}
         
-                <span className="pointer-events-none absolute -right-0 bottom-0 z-0 text-7xl text-neutral-800 mr-3">
+                <span className="pointer-events-none absolute -right-0 bottom-0 z-0 text-7xl text-emerald-800/50 mr-3">
                     {idx + 1}/{CONTENT.length}
                 </span>
             </div>
@@ -180,7 +183,7 @@ const Buttons = ({ idx, setIdx }) => {
                     }
                     });
                 }}
-                className="pointer-events-none absolute -top-[1px] bottom-0 z-20 bg-neutral-600/10"
+                className="pointer-events-none absolute -top-[1px] bottom-0 z-20 bg-emerald-500/20"
             />
         </div>
     );
@@ -244,36 +247,37 @@ const CONTENT = [
     {
         content: (
             <>
-                <p className="text-white text-lg font-medium leading-tight">
-                    The greatest glory in living lies not in never falling, but in rising every time we fall. - Nelson Mandela
-                </p>
+                <div className="text-white text-xl font-medium leading-tight">
+                    <p>The greatest glory in living lies not in never falling, but in rising every time we fall. <br/><span className="text-emerald-300"> - Nelson Mandela</span></p>
+                </div>
+                
+            </>
+        ), 
+    },
+    {
+        content: (
+            <>
+                <div className="text-white text-xl font-medium leading-tight">
+                    <p>The way to get started is to quit talking and begin doing. <br/><span className="text-emerald-300"> - Walt Disney</span></p>
+                </div>
             </>
         ),
     },
     {
         content: (
             <>
-                <p className="text-white text-lg font-medium leading-tight">
-                    The way to get started is to quit talking and begin doing. -Walt Disney
-                </p>
+                <div className="text-white text-xl font-medium leading-tight">
+                    <p>Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma, which is living with the results of other people's thinking. <br/> <span className="text-emerald-300"> - Steve Jobs</span></p>
+                </div>
             </>
         ),
     },
     {
         content: (
             <>
-                <p className="text-white text-lg font-medium leading-tight">
-                    Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking. -Steve Jobs
-                </p>
-            </>
-        ),
-    },
-    {
-        content: (
-            <>
-                <p className="text-white text-lg font-medium leading-tight">
-                    If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough. -Oprah Winfrey
-                </p>
+                <div className="text-white text-xl font-medium leading-tight">
+                    <p>If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough. <br/> <span className="text-emerald-300"> - Oprah Winfrey</span></p>
+                </div>
             </>
         ),
     },
