@@ -10,6 +10,6 @@ export const landing = [
         quotethree: "Quote 3 coming soon",
     },
     {
-        quotefour: "Hello my darling",
+        quotefour: "Quote 4 coming soon",
     }
 ];
